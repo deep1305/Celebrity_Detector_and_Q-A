@@ -57,7 +57,7 @@ Celebrity Detector and QA/
 
    ```bash
    git clone https://github.com/deep1305/Celebrity_Detector_and_Q-A.git
-   cd "Celebrity Detector and QA"
+   cd Celebrity_Detector_and_Q-A
    ```
 
 2. **Install dependencies**
