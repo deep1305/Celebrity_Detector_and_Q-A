@@ -36,3 +36,5 @@ htmlcov/
 # Personal notes
 code_explained.txt
 notes.txt
+
+*.json
