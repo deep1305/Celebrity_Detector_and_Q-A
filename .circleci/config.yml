@@ -3,7 +3,7 @@ version: 2.1
 executors:
   docker-executor:
     docker:
-      - image: google/cloud-sdk:latest
+      - image: cimg/gcp:2024.01
     working_directory: ~/repo
 
 jobs:
@@ -41,6 +41,11 @@ jobs:
               echo "$GCLOUD_SERVICE_KEY" | base64 --decode > gcp-key.json
               gcloud auth activate-service-account --key-file=gcp-key.json
               gcloud auth configure-docker us-central1-docker.pkg.dev || gcloud auth configure-docker
+      
+      - run:
+          name: Install GKE Auth Plugin
+          command: |
+              gcloud components install gke-gcloud-auth-plugin --quiet
       
       - run:
           name: Configure GKE
