@@ -3,7 +3,7 @@ version: 2.1
 executors:
   docker-executor:
     docker:
-      - image: cimg/gcp:2024.01
+      - image: cimg/gcp:2023.07
     working_directory: ~/repo
 
 jobs:
