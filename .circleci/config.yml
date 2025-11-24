@@ -27,8 +27,8 @@ jobs:
       - run:
           name: Build and Push Image
           command: |
-              docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT_ID/llmops-repo/llmops-app:latest .
-              docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT_ID/llmops-repo/llmops-app:latest
+              docker build -t us-central1-docker.pkg.dev/striking-gadget-478715-b0/llmops-repo/llmops-app:latest .
+              docker push us-central1-docker.pkg.dev/striking-gadget-478715-b0/llmops-repo/llmops-app:latest
 
   deploy_to_gke:
     executor: docker-executor
@@ -45,7 +45,7 @@ jobs:
       - run:
           name: Configure GKE
           command: |
-              gcloud container clusters get-credentials $GKE_CLUSTER --zone $GOOGLE_COMPUTE_ZONE --project $GOOGLE_PROJECT_ID
+              gcloud container clusters get-credentials $GKE_CLUSTER --zone $GOOGLE_COMPUTE_ZONE --project striking-gadget-478715-b0
       - run:
           name: Deploy to GKE
           command: |
