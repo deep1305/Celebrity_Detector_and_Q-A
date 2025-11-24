@@ -3,7 +3,7 @@ version: 2.1
 executors:
   docker-executor:
     docker:
-      - image: google/cloud-sdk:latest
+      - image: circleci/build-tools:3.0
     working_directory: ~/repo
 
 jobs:
@@ -17,6 +17,11 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+      - run:
+          name: Install Docker
+          command: |
+            curl -fsSL https://get.docker.com -o get-docker.sh
+            sh get-docker.sh
       - run:
           name: Authenticate with google cloud
           command: |
@@ -63,8 +68,3 @@ workflows:
       - deploy_to_gke:
           requires:
             - build_docker_image
-
-    
-
-
-
